@@ -2,24 +2,24 @@ package taskList
 
 import "fmt"
 
-type taskList struct {
-	tasks []*task
+type TaskList struct {
+	tasks []*Task
 }
 
-func (tl *taskList) AgregarALista(t *task) {
+func (tl *TaskList) AgregarALista(t *Task) {
 	tl.tasks = append(tl.tasks, t)
 }
-func (tl *taskList) EliminarDeLista(index int) {
+func (tl *TaskList) EliminarDeLista(index int) {
 	tl.tasks = append(tl.tasks[:index], tl.tasks[index+1:]...)
 }
 
-func (tl *taskList) ImprimirLista() {
+func (tl *TaskList) ImprimirLista() {
 	for _, tarea := range tl.tasks {
 		fmt.Println("Nombre:", tarea.nombre)
 		fmt.Println("Descripcion:", tarea.descripcion)
 	}
 }
-func (tl *taskList) ImprimirListaCompletadas() {
+func (tl *TaskList) ImprimirListaCompletadas() {
 	for _, tarea := range tl.tasks {
 		if tarea.completado {
 			fmt.Println("Nombre:", tarea.nombre)
@@ -28,20 +28,20 @@ func (tl *taskList) ImprimirListaCompletadas() {
 	}
 }
 
-type task struct {
+type Task struct {
 	nombre      string
 	descripcion string
 	completado  bool
 }
 
-func (t *task) marcarCompleta() {
+func (t *Task) MarcarCompleta() {
 	t.completado = true
 }
 
-func (t *task) actualizarDescripcion(descripcion string) {
+func (t *Task) ActualizarDescripcion(descripcion string) {
 	t.descripcion = descripcion
 }
 
-func (t *task) actualizarNombre(nombre string) {
+func (t *Task) ActualizarNombre(nombre string) {
 	t.nombre = nombre
 }
