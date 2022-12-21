@@ -1,4 +1,4 @@
-package taskList
+package myTaskList
 
 import "fmt"
 
